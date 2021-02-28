@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+{% block body %}
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url({{ url_for('static', filename='img/home-bg.jpg') }})">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Healthy Millets</h1>
+            <span class="subheading">Processing of millets</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Tagline</th>
+            <th scope="col">Posted by</th>
+            <th scope="col">posted on</th>
+            <th scope="col">edit</th>
+            <th scope="col">delete</th>
+          </tr>
+        </thead>
+        <tbody>          
+          {% for post in posts %}
+            <tr>
+              <td scope="row">{{loop.index}}</td>
+              <td>{{post.title}}</td>
+              <td>{{post.tagline[0:13]}}</td>
+              <td>{{post.post_by}}</td>
+              <td>{{post.post_date.strftime('%Y-%m-%d')}}</td>
+              <td><a href="/edit/{{post.srno}}" class="btn btn-primary">Edit</a></td>
+              <td><a href="/delete/{{post.srno}}"  class="btn btn-danger">Delete</a></td>
+            </tr> 
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

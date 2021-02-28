@@ -1,0 +1,9 @@
+{
+  "params":
+  {
+    "local_server" : "True",
+    "local_uri": "mysql://root:@localhost/clean_blog",
+    "prod_uri" : "mysql://root:@localhost/clean_blog",
+    "upload_location" : "C:\\Users\\User\\Desktop\\clean_blog\\static\\img"
+  }
+}
